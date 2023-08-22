@@ -181,6 +181,89 @@
                             "fillColor": "#ffffff",
                             "width": 128,
                             "height": 128
+                        },
+                        {
+                            "type": "Rectangle",
+                            "id": "dade5641-f976-49bc-a6ad-acc67e2aa2fa",
+                            "label": "barrier_10",
+                            "components": [],
+                            "x": 10691,
+                            "y": 725,
+                            "originY": 0,
+                            "isFilled": true,
+                            "fillColor": "#ffffff",
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "type": "Rectangle",
+                            "id": "d37a054e-ec51-42a9-a2b6-97a3aa637369",
+                            "label": "barrier_11",
+                            "components": [],
+                            "x": 10691,
+                            "y": -35,
+                            "scaleY": 1.5,
+                            "originY": 0,
+                            "isFilled": true,
+                            "fillColor": "#000000",
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "type": "Rectangle",
+                            "id": "63f7ede3-64e6-430b-b762-9962fedef939",
+                            "label": "barrier_12",
+                            "components": [],
+                            "x": 12316,
+                            "y": 536,
+                            "scaleY": 2,
+                            "originY": 1,
+                            "isFilled": true,
+                            "fillColor": "#000000",
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "type": "Rectangle",
+                            "id": "db309817-3200-4153-94a6-f715241d2f55",
+                            "label": "barrier_13",
+                            "components": [],
+                            "x": 12316,
+                            "y": 725,
+                            "scaleY": 2,
+                            "originY": 0,
+                            "isFilled": true,
+                            "fillColor": "#ffffff",
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "type": "Rectangle",
+                            "id": "f0df57cd-9792-414f-a3a4-025b24b1b849",
+                            "label": "barrier_14",
+                            "components": [],
+                            "x": 13370,
+                            "y": -35,
+                            "scaleY": 2.3,
+                            "originY": 0,
+                            "isFilled": true,
+                            "fillColor": "#000000",
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "type": "Rectangle",
+                            "id": "07748a23-dd2a-4046-bf84-84b14e850d81",
+                            "label": "barrier_15",
+                            "components": [],
+                            "x": 14157,
+                            "y": 725,
+                            "scaleY": 2,
+                            "originY": 0,
+                            "isFilled": true,
+                            "fillColor": "#ffffff",
+                            "width": 128,
+                            "height": 128
                         }
                     ]
                 },
@@ -248,6 +331,14 @@
                             "color": "#000000ff"
                         }
                     ]
+                },
+                {
+                    "type": "Container",
+                    "id": "418ca871-bead-4901-b25e-0f89f10a3e47",
+                    "label": "container_button",
+                    "components": [],
+                    "y": -7,
+                    "list": []
                 }
             ]
         }

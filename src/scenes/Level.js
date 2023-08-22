@@ -1,7 +1,6 @@
 
 // You can write more code here
-let score = 0;
-let pointer = false;
+
 /* START OF COMPILED CODE */
 
 class Level extends Phaser.Scene {
@@ -104,6 +103,50 @@ class Level extends Phaser.Scene {
 		barrier_9.isFilled = true;
 		container_barriers.add(barrier_9);
 
+		// barrier_10
+		const barrier_10 = this.add.rectangle(10691, 725, 128, 128);
+		barrier_10.setOrigin(0.5, 0);
+		barrier_10.isFilled = true;
+		container_barriers.add(barrier_10);
+
+		// barrier_11
+		const barrier_11 = this.add.rectangle(10691, -35, 128, 128);
+		barrier_11.scaleY = 1.5;
+		barrier_11.setOrigin(0.5, 0);
+		barrier_11.isFilled = true;
+		barrier_11.fillColor = 0;
+		container_barriers.add(barrier_11);
+
+		// barrier_12
+		const barrier_12 = this.add.rectangle(12316, 536, 128, 128);
+		barrier_12.scaleY = 2;
+		barrier_12.setOrigin(0.5, 1);
+		barrier_12.isFilled = true;
+		barrier_12.fillColor = 0;
+		container_barriers.add(barrier_12);
+
+		// barrier_13
+		const barrier_13 = this.add.rectangle(12316, 725, 128, 128);
+		barrier_13.scaleY = 2;
+		barrier_13.setOrigin(0.5, 0);
+		barrier_13.isFilled = true;
+		container_barriers.add(barrier_13);
+
+		// barrier_14
+		const barrier_14 = this.add.rectangle(13370, -35, 128, 128);
+		barrier_14.scaleY = 2.3;
+		barrier_14.setOrigin(0.5, 0);
+		barrier_14.isFilled = true;
+		barrier_14.fillColor = 0;
+		container_barriers.add(barrier_14);
+
+		// barrier_15
+		const barrier_15 = this.add.rectangle(14157, 725, 128, 128);
+		barrier_15.scaleY = 2;
+		barrier_15.setOrigin(0.5, 0);
+		barrier_15.isFilled = true;
+		container_barriers.add(barrier_15);
+
 		// container_balls
 		const container_balls = this.add.container(0, -7);
 		body.add(container_balls);
@@ -132,6 +175,10 @@ class Level extends Phaser.Scene {
 		score_text.text = "0";
 		score_text.setStyle({ "align": "center", "color": "#000000ff", "fontSize": "60px", "fontStyle": "italic" });
 		container_score.add(score_text);
+
+		// container_button
+		const container_button = this.add.container(0, -7);
+		body.add(container_button);
 
 		this.container_background = container_background;
 		this.lower_background = lower_background;
@@ -166,27 +213,58 @@ class Level extends Phaser.Scene {
 
 	// Write more your code here
 
+	scoreUpdate() {
+		let score = 0;
+		this.score = setInterval(() => {
+			this.score_text.setText(score);
+			if (!this.scene.isPaused("Level")) {
+				score++;
+			}
+		}, 100);
+	}
+
+	clearTimer() {
+		clearInterval(this.score);
+		this.scoreUpdate();
+	}
+
+	particalAnimation(ball, partical) {
+		this.partical1 = this.add.particles(partical);
+		this.emitter = this.partical1.createEmitter({
+			speed : 80,
+			scale : { start : 1 , end : 0 },
+			blendMode : 'ADD',
+			lifespan : { min : 10, max : 100}		
+		});
+		this.emitter.startFollow(ball,0.03);
+		this.emitter.setScale(0.03);
+		this.emitter.setGravityX(-20000);
+		this.emitter.flow(0,1);
+	}
+
 	create() {
 
 		this.editorCreate();
 
+		this.isPointerDown = false;
+
+		this.clearTimer();
+		this.particalAnimation(this.upper_ball);
+
 		this.barriarGroup = this.add.group();
 		this.ballGroup = this.add.group();
 
-		// this.input.keyboard.on('keydown', this.handleKeyDown, this);
 		this.container_balls.list.forEach((ball) => {
 			this.physics.add.existing(ball, false);
 			if (ball.scaleX == 0.26) {
 				ball.body.setCircle(250, 0.5, 1.5);
-				ball.body.setGravityY(2500);
+				ball.body.setGravityY(3000);
 			}
 			else {
 				ball.body.setCircle(175, 0.5, 0.5);
-				console.log(ball.positionY);
-				ball.body.setGravityY(-2500);
+				ball.body.setGravityY(-3000);
 			}
 			this.ballGroup.add(ball);
-			console.log(this.ballGroup);
 			ball.body.setCollideWorldBounds(true);
 		})
 
@@ -215,42 +293,60 @@ class Level extends Phaser.Scene {
 		this.physics.add.collider(this.lower_ball, this.upper_ball, () => {
 			this.lower_ball.body.setBounceY(0.85);
 			this.lower_ball.setX(this.upper_ball.x);
+			this.particalAnimation(this.upper_ball, "upper_ball");
+			this.particalAnimation(this.lower_ball, "lower_ball");
 		})
 
 
 		this.physics.add.collider(this.lower_ball, this.upper_background, () => {
 			this.lower_ball.body.setVelocityY(0);
+			this.particalAnimation(this.lower_ball,"lower_ball");
 
 		})
 		this.physics.add.collider(this.upper_ball, this.lower_background, () => {
 			this.lower_ball.setX(this.upper_ball.x);
-
+			this.particalAnimation(this.upper_ball,"upper_ball");
 		})
 
 		this.physics.add.collider(this.ballGroup, this.barriarGroup, () => {
-			this.scene.pause("Level");
+			this.scene.pause();
+
+			setTimeout(() => {
+				this.scene.restart();
+			}, 3000);
 		})
 
-	}
+		this.input.on("pointerdown", () => {
+			this.isPointerDown = true;
+		})
 
-	bounceHandler() {
-		this.upper_ball.body.setVelocityY(-1500);
+		this.input.on("pointerup", () => {
+			this.isPointerDown = false;
+		})
 	}
 
 	update() {
 		let cursors = this.input.keyboard.createCursorKeys();
 
 		if (cursors.up.isDown) {
-			this.bounceHandler();
+			this.upper_ball.body.setVelocityY(-2000);
+
 		}
+
+		if (this.isPointerDown) {
+			this.upper_ball.body.setVelocityY(-2000);
+
+		}
+
+
 
 		this.container_barriers.getAll().forEach((barrier) => {
 			if (barrier.x < -200) {
-				barrier.x += 9210;
-				barrier.body.x += 9210;
+				barrier.x += 14037;
+				barrier.body.x += 14037;
 			}
-			barrier.x -= 15;
-			barrier.body.x -= 15;
+			barrier.x -= 20;
+			barrier.body.x -= 20;
 		})
 
 	}
