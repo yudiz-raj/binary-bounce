@@ -1,6 +1,22 @@
 {
     "section1": {
-        "files": []
+        "files": [
+            {
+                "url": "assets/images/background.png",
+                "type": "image",
+                "key": "background"
+            },
+            {
+                "url": "assets/images/game play/fire-ball.png",
+                "type": "image",
+                "key": "fire-ball"
+            },
+            {
+                "url": "assets/images/game play/Ice-ball.png",
+                "type": "image",
+                "key": "Ice-ball"
+            }
+        ]
     },
     "meta": {
         "app": "Phaser Editor 2D - Asset Pack Editor",

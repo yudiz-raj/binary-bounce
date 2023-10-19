@@ -2,6 +2,11 @@
     "section1": {
         "files": [
             {
+                "url": "assets/images/game play/blue-barrier.png",
+                "type": "image",
+                "key": "blue-barrier"
+            },
+            {
                 "url": "src/scripts/GameManager.js",
                 "type": "script",
                 "key": "GameManager"
@@ -15,6 +20,21 @@
                 "url": "assets/images/lower_ball.png",
                 "type": "image",
                 "key": "lower_ball"
+            },
+            {
+                "url": "assets/images/particle.png",
+                "type": "image",
+                "key": "particle"
+            },
+            {
+                "url": "assets/images/game play/pink-barrier.png",
+                "type": "image",
+                "key": "pink-barrier"
+            },
+            {
+                "url": "assets/images/game play/score-bar.png",
+                "type": "image",
+                "key": "score-bar"
             },
             {
                 "url": "src/scripts/SocketManager.js",
