@@ -27,7 +27,7 @@
                             "id": "82e17e11-38c6-42da-bfc8-3bcb695ec297",
                             "label": "lower_background",
                             "scope": "CLASS",
-                            "y": 544,
+                            "y": 554,
                             "scaleX": 15,
                             "scaleY": 4.27,
                             "originX": 0,
@@ -42,7 +42,7 @@
                             "id": "a28fb43c-f9cc-4b96-93c3-b2cfe493c610",
                             "label": "upper_background",
                             "scope": "CLASS",
-                            "y": 544,
+                            "y": 554,
                             "scaleX": 15,
                             "scaleY": 4.27,
                             "originX": 0,
@@ -59,7 +59,7 @@
                                 "key": "background"
                             },
                             "x": 960,
-                            "y": 536
+                            "y": 540
                         }
                     ]
                 },
@@ -78,7 +78,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 1120,
-                            "y": 548,
+                            "y": 550,
                             "originY": 1
                         },
                         {
@@ -89,7 +89,7 @@
                                 "key": "pink-barrier"
                             },
                             "x": 2683,
-                            "y": 548,
+                            "y": 550,
                             "originY": 0
                         },
                         {
@@ -100,7 +100,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 4032,
-                            "y": 548,
+                            "y": 550,
                             "originY": 1
                         },
                         {
@@ -111,7 +111,7 @@
                                 "key": "pink-barrier"
                             },
                             "x": 4032,
-                            "y": 548,
+                            "y": 550,
                             "originY": 0
                         },
                         {
@@ -122,7 +122,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 5245,
-                            "y": 548,
+                            "y": 550,
                             "originY": 1
                         },
                         {
@@ -133,7 +133,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 6214,
-                            "y": 548,
+                            "y": 550,
                             "originY": 1
                         },
                         {
@@ -144,7 +144,7 @@
                                 "key": "pink-barrier"
                             },
                             "x": 7187,
-                            "y": 548,
+                            "y": 550,
                             "originY": 0
                         },
                         {
@@ -155,7 +155,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 8257,
-                            "y": 548,
+                            "y": 550,
                             "originY": 1
                         },
                         {
@@ -166,7 +166,7 @@
                                 "key": "pink-barrier"
                             },
                             "x": 9330,
-                            "y": 548,
+                            "y": 550,
                             "originY": 0
                         },
                         {
@@ -177,8 +177,8 @@
                                 "key": "pink-barrier"
                             },
                             "x": 10691,
-                            "y": 548,
-                            "originY": 0
+                            "y": 550,
+                            "originY": 1
                         },
                         {
                             "type": "Image",
@@ -188,8 +188,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 10691,
-                            "y": 548,
-                            "scaleY": 1.5,
+                            "y": 609.5,
                             "originY": 0
                         },
                         {
@@ -200,8 +199,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 12316,
-                            "y": 548,
-                            "scaleY": 2,
+                            "y": 431,
                             "originY": 1
                         },
                         {
@@ -212,8 +210,7 @@
                                 "key": "pink-barrier"
                             },
                             "x": 12316,
-                            "y": 548,
-                            "scaleY": 2,
+                            "y": 635,
                             "originY": 0
                         },
                         {
@@ -224,8 +221,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 13370,
-                            "y": 548,
-                            "scaleY": 2.3,
+                            "y": 704.7000122070312,
                             "originY": 0
                         },
                         {
@@ -236,8 +232,7 @@
                                 "key": "pink-barrier"
                             },
                             "x": 14157,
-                            "y": 548,
-                            "scaleY": 2,
+                            "y": 550,
                             "originY": 0
                         }
                     ]

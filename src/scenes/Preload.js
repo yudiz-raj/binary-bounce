@@ -28,6 +28,9 @@ class Preload extends Phaser.Scene {
 		progress.text = "0%";
 		progress.setStyle({ "fontSize": "54px" });
 
+		// background
+		this.add.image(960, 540, "background");
+
 		// progress (components)
 		new PreloadText(progress);
 

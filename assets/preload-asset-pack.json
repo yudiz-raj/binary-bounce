@@ -7,6 +7,41 @@
                 "key": "background"
             },
             {
+                "url": "assets/images/game play/particals/Blue/blue-blur.png",
+                "type": "image",
+                "key": "blue-blur"
+            },
+            {
+                "url": "assets/images/game play/particals/Blue/blue-blur-large.png",
+                "type": "image",
+                "key": "blue-blur-large"
+            },
+            {
+                "url": "assets/images/game play/particals/Blue/blue-blur-medium.png",
+                "type": "image",
+                "key": "blue-blur-medium"
+            },
+            {
+                "url": "assets/images/game play/particals/Blue/blue-fire.png",
+                "type": "image",
+                "key": "blue-fire"
+            },
+            {
+                "url": "assets/images/game play/particals/Blue/blue-large.png",
+                "type": "image",
+                "key": "blue-large"
+            },
+            {
+                "url": "assets/images/game play/particals/Blue/blue-medium.png",
+                "type": "image",
+                "key": "blue-medium"
+            },
+            {
+                "url": "assets/images/game play/particals/Blue/blue-small.png",
+                "type": "image",
+                "key": "blue-small"
+            },
+            {
                 "url": "assets/images/game play/fire-ball.png",
                 "type": "image",
                 "key": "fire-ball"
@@ -15,6 +50,46 @@
                 "url": "assets/images/game play/Ice-ball.png",
                 "type": "image",
                 "key": "Ice-ball"
+            },
+            {
+                "url": "assets/images/splash screen/logo.png",
+                "type": "image",
+                "key": "logo"
+            },
+            {
+                "url": "assets/images/game play/particals/Red/red-blur-large.png",
+                "type": "image",
+                "key": "red-blur-large"
+            },
+            {
+                "url": "assets/images/game play/particals/Red/red-blur-medium.png",
+                "type": "image",
+                "key": "red-blur-medium"
+            },
+            {
+                "url": "assets/images/game play/particals/Red/red-blur-small.png",
+                "type": "image",
+                "key": "red-blur-small"
+            },
+            {
+                "url": "assets/images/game play/particals/Red/red-fire.png",
+                "type": "image",
+                "key": "red-fire"
+            },
+            {
+                "url": "assets/images/game play/particals/Red/red-large.png",
+                "type": "image",
+                "key": "red-large"
+            },
+            {
+                "url": "assets/images/game play/particals/Red/red-medium.png",
+                "type": "image",
+                "key": "red-medium"
+            },
+            {
+                "url": "assets/images/game play/particals/Red/red-small.png",
+                "type": "image",
+                "key": "red-small"
             }
         ]
     },
