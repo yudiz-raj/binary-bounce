@@ -1,0 +1,98 @@
+{
+    "id": "1e113cef-c60a-44cb-8d2f-bb84a6b9bb48",
+    "sceneType": "PREFAB",
+    "settings": {
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1920,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "9a8b8822-fde1-4e15-b130-1908f3ce9ffd",
+            "label": "container_1",
+            "x": 0.0008398355566896498,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "9d1a6b7c-2a2b-4590-a571-91cc5d07d283",
+                    "label": "upper_ball",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire-ball"
+                    },
+                    "x": -451.00083993876945,
+                    "y": -90
+                },
+                {
+                    "type": "Image",
+                    "id": "bad80d3e-82ea-400a-8de7-99cedd0eed37",
+                    "label": "lower_ball",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "Ice-ball"
+                    },
+                    "x": 410.99916006123055,
+                    "y": -96,
+                    "flipX": true
+                },
+                {
+                    "type": "Image",
+                    "id": "c63dfc31-b701-4c98-b129-87351e550fe5",
+                    "label": "logo_text",
+                    "texture": {
+                        "key": "logo-text"
+                    },
+                    "x": -14,
+                    "y": -13
+                },
+                {
+                    "type": "Image",
+                    "id": "a933f4a3-c1ee-4834-9c1d-cc54d800347a",
+                    "label": "lower_shadow_ball",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "Ice-ball"
+                    },
+                    "x": 415,
+                    "y": 14,
+                    "scaleY": 0.52,
+                    "flipX": true,
+                    "flipY": true,
+                    "alpha": 0.2,
+                    "alphaTopLeft": 0.2,
+                    "alphaTopRight": 0.2,
+                    "alphaBottomLeft": 0.2,
+                    "alphaBottomRight": 0.2
+                },
+                {
+                    "type": "Image",
+                    "id": "974a9ff3-eaa7-4db5-94d5-d3a343550e7e",
+                    "label": "upper_shadow_ball",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "fire-ball"
+                    },
+                    "x": -448,
+                    "y": 12,
+                    "scaleY": 0.52,
+                    "flipY": true,
+                    "alpha": 0.2,
+                    "alphaTopLeft": 0.2,
+                    "alphaTopRight": 0.2,
+                    "alphaBottomLeft": 0.2,
+                    "alphaBottomRight": 0.2
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

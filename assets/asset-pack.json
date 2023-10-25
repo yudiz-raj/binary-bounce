@@ -12,19 +12,19 @@
                 "key": "GameManager"
             },
             {
+                "url": "src/scenes/Home.js",
+                "type": "sceneFile",
+                "key": "Home"
+            },
+            {
+                "url": "assets/images/game play/home-button.png",
+                "type": "image",
+                "key": "home-button"
+            },
+            {
                 "url": "src/scripts/InputManager.js",
                 "type": "script",
                 "key": "InputManager"
-            },
-            {
-                "url": "assets/images/lower_ball.png",
-                "type": "image",
-                "key": "lower_ball"
-            },
-            {
-                "url": "assets/images/particle.png",
-                "type": "image",
-                "key": "particle"
             },
             {
                 "url": "assets/images/game play/pink-barrier.png",
@@ -32,9 +32,19 @@
                 "key": "pink-barrier"
             },
             {
+                "url": "assets/images/game over/retry-button.png",
+                "type": "image",
+                "key": "retry-button"
+            },
+            {
                 "url": "assets/images/game play/score-bar.png",
                 "type": "image",
                 "key": "score-bar"
+            },
+            {
+                "url": "assets/images/game over/score-board.png",
+                "type": "image",
+                "key": "score-board"
             },
             {
                 "url": "src/scripts/SocketManager.js",
@@ -47,9 +57,9 @@
                 "key": "SoundManager"
             },
             {
-                "url": "assets/images/upper_ball.png",
-                "type": "image",
-                "key": "upper_ball"
+                "url": "src/scripts/TweenManager.js",
+                "type": "script",
+                "key": "TweenManager"
             }
         ]
     },

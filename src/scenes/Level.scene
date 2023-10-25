@@ -251,17 +251,27 @@
                     "y": -7,
                     "list": [
                         {
+                            "type": "Image",
+                            "id": "7a3b95cf-4496-4619-a812-d7d496869d69",
+                            "label": "score_bar",
+                            "texture": {
+                                "key": "score-bar"
+                            },
+                            "x": 165,
+                            "y": 63
+                        },
+                        {
                             "type": "Text",
                             "id": "cd580b1b-b204-4466-b580-c8cf883d76ef",
                             "label": "score_text",
                             "scope": "CLASS",
-                            "x": 51,
-                            "y": 93,
-                            "originX": 0.5,
+                            "x": 39,
+                            "y": 55,
                             "originY": 0.5,
-                            "text": "0",
+                            "text": "Score:   00",
                             "align": "center",
-                            "fontSize": "60px",
+                            "fontFamily": "Bungee",
+                            "fontSize": "40px",
                             "fontStyle": "italic",
                             "color": "#000000ff"
                         }
@@ -269,9 +279,45 @@
                 },
                 {
                     "type": "Container",
-                    "id": "418ca871-bead-4901-b25e-0f89f10a3e47",
-                    "label": "container_button",
-                    "y": -7
+                    "id": "304c834d-2e23-4485-b1ab-b46613613920",
+                    "label": "container_result",
+                    "scope": "CLASS",
+                    "y": -7,
+                    "visible": false,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "fadefc50-d1e5-4605-8f06-660e52394a03",
+                            "label": "score_board",
+                            "texture": {
+                                "key": "score-board"
+                            },
+                            "x": 960,
+                            "y": 496
+                        },
+                        {
+                            "type": "Image",
+                            "id": "5bd52dda-b472-4051-b039-4cbc8184e76f",
+                            "label": "retry_button",
+                            "scope": "CLASS",
+                            "texture": {
+                                "key": "retry-button"
+                            },
+                            "x": 1090,
+                            "y": 690
+                        }
+                    ]
+                },
+                {
+                    "type": "Image",
+                    "id": "36ce0da8-73b0-4f44-a188-eff9f08ba455",
+                    "label": "home_button",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "home-button"
+                    },
+                    "x": 1807,
+                    "y": 58
                 }
             ]
         }

@@ -31,6 +31,10 @@ class Preload extends Phaser.Scene {
 		// background
 		this.add.image(960, 540, "background");
 
+		// logoPrefab
+		const logoPrefab = new LogoPrefab(this, 960, 588);
+		this.add.existing(logoPrefab);
+
 		// progress (components)
 		new PreloadText(progress);
 
@@ -40,7 +44,6 @@ class Preload extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
-
 	preload() {
 
 		this.editorCreate();

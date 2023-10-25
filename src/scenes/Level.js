@@ -131,16 +131,33 @@ class Level extends Phaser.Scene {
 		const container_score = this.add.container(0, -7);
 		body.add(container_score);
 
+		// score_bar
+		const score_bar = this.add.image(165, 63, "score-bar");
+		container_score.add(score_bar);
+
 		// score_text
-		const score_text = this.add.text(51, 93, "", {});
-		score_text.setOrigin(0.5, 0.5);
-		score_text.text = "0";
-		score_text.setStyle({ "align": "center", "color": "#000000ff", "fontSize": "60px", "fontStyle": "italic" });
+		const score_text = this.add.text(39, 55, "", {});
+		score_text.setOrigin(0, 0.5);
+		score_text.text = "Score:   00";
+		score_text.setStyle({ "align": "center", "color": "#000000ff", "fontFamily": "Bungee", "fontSize": "40px", "fontStyle": "italic" });
 		container_score.add(score_text);
 
-		// container_button
-		const container_button = this.add.container(0, -7);
-		body.add(container_button);
+		// container_result
+		const container_result = this.add.container(0, -7);
+		container_result.visible = false;
+		body.add(container_result);
+
+		// score_board
+		const score_board = this.add.image(960, 496, "score-board");
+		container_result.add(score_board);
+
+		// retry_button
+		const retry_button = this.add.image(1090, 690, "retry-button");
+		container_result.add(retry_button);
+
+		// home_button
+		const home_button = this.add.image(1807, 58, "home-button");
+		body.add(home_button);
 
 		this.lower_background = lower_background;
 		this.upper_background = upper_background;
@@ -148,6 +165,9 @@ class Level extends Phaser.Scene {
 		this.container_barriers = container_barriers;
 		this.container_balls = container_balls;
 		this.score_text = score_text;
+		this.retry_button = retry_button;
+		this.container_result = container_result;
+		this.home_button = home_button;
 
 		this.events.emit("scene-awake");
 	}
@@ -164,6 +184,12 @@ class Level extends Phaser.Scene {
 	container_balls;
 	/** @type {Phaser.GameObjects.Text} */
 	score_text;
+	/** @type {Phaser.GameObjects.Image} */
+	retry_button;
+	/** @type {Phaser.GameObjects.Container} */
+	container_result;
+	/** @type {Phaser.GameObjects.Image} */
+	home_button;
 
 	/* START-USER-CODE */
 
@@ -172,18 +198,24 @@ class Level extends Phaser.Scene {
 	scoreUpdate() {
 		let score = 0;
 		this.score = setInterval(() => {
-			this.score_text.setText(score);
+			if (score < 10) {
+				this.score_text.setText(`Score:   0${score}`);
+			}
+			if (score >= 10 && score < 100) {
+				this.score_text.setText(`Score:   ${score}`);
+			}
+			if (score >= 100) {
+				this.score_text.setText(`Score: ${score}`);
+			}
 			if (!this.scene.isPaused("Level")) {
 				score++;
 			}
 		}, 100);
 	}
-
 	clearTimer() {
 		clearInterval(this.score);
 		this.scoreUpdate();
 	}
-
 	particalAnimation() {
 		const createParticleEmitter = (texture, offsetX, offsetY, speed, scaleStart, scaleEnd, ball, lifespanMin, lifespanMax) => {
 			const particleSystem = this.add.particles();
@@ -207,13 +239,13 @@ class Level extends Phaser.Scene {
 		this.redPartical2 = createParticleEmitter("red-blur-medium", 20, -60, 150, 1, 0, this.upper_ball, 500, 1000);
 		this.redPartical3 = createParticleEmitter("red-blur-large", 40, -140, 150, 1, 0, this.upper_ball, 500, 1000);
 		this.redPartical4 = createParticleEmitter("red-fire", -40, -150, 80, 1, 0, this.upper_ball, 500, 1000);
-
 	}
-
 	create() {
 
 		this.editorCreate();
+		this.oTweenManager = new TweenManager(this);
 		this.isPointerDown = false;
+		this.gameOver = false;
 		this.clearTimer();
 		this.barriarGroup = this.add.group();
 		this.ballGroup = this.physics.add.group();
@@ -268,12 +300,11 @@ class Level extends Phaser.Scene {
 		})
 
 		this.physics.add.collider(this.ballGroup, this.barriarGroup, () => {
-			this.scene.pause();
-
-			// setTimeout(() => {
-			// 	this.scene.restart();
-			// }, 3000);
-		})
+			clearInterval(this.score);
+			this.gameOver = true;
+			this.container_result.setVisible(true);
+			this.home_button.setPosition(830, 690);
+		});
 
 		this.input.on("pointerdown", () => {
 			this.isPointerDown = true;
@@ -285,31 +316,25 @@ class Level extends Phaser.Scene {
 	}
 
 	update() {
-		let cursors = this.input.keyboard.createCursorKeys();
+		if (!this.gameOver) {
 
-		if (cursors.up.isDown) {
-			this.upper_ball.body.setVelocityY(-2000);
-
-		}
-
-		if (this.isPointerDown) {
-			this.upper_ball.body.setVelocityY(-2000);
-
-		}
-
-
-
-		this.container_barriers.getAll().forEach((barrier) => {
-			if (barrier.x < -200) {
-				barrier.x += 14037;
-				barrier.body.x += 14037;
+			let cursors = this.input.keyboard.createCursorKeys();
+			if (cursors.up.isDown) {
+				this.upper_ball.body.setVelocityY(-2000);
 			}
-			barrier.x -= 20;
-			barrier.body.x -= 20;
-		})
-
+			if (this.isPointerDown) {
+				this.upper_ball.body.setVelocityY(-2000);
+			}
+			this.container_barriers.getAll().forEach((barrier) => {
+				if (barrier.x < -200) {
+					barrier.x += 14037;
+					barrier.body.x += 14037;
+				}
+				barrier.x -= 20;
+				barrier.body.x -= 20;
+			})
+		}
 	}
-
 	/* END-USER-CODE */
 }
 
