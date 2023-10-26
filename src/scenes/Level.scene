@@ -55,6 +55,7 @@
                             "type": "Image",
                             "id": "9ae4062d-d37f-497e-acf9-b37fbfbb3ecb",
                             "label": "background",
+                            "scope": "CLASS",
                             "texture": {
                                 "key": "background"
                             },
@@ -273,7 +274,7 @@
                             "fontFamily": "Bungee",
                             "fontSize": "40px",
                             "fontStyle": "italic",
-                            "color": "#000000ff"
+                            "color": "#431b59"
                         }
                     ]
                 },
@@ -299,25 +300,93 @@
                             "type": "Image",
                             "id": "5bd52dda-b472-4051-b039-4cbc8184e76f",
                             "label": "retry_button",
+                            "useGameObjectName": true,
                             "scope": "CLASS",
+                            "hitArea.shape": "PIXEL_PERFECT",
                             "texture": {
                                 "key": "retry-button"
                             },
                             "x": 1090,
                             "y": 690
+                        },
+                        {
+                            "type": "Image",
+                            "id": "36ce0da8-73b0-4f44-a188-eff9f08ba455",
+                            "label": "home_button",
+                            "useGameObjectName": true,
+                            "scope": "CLASS",
+                            "hitArea.shape": "PIXEL_PERFECT",
+                            "texture": {
+                                "key": "home-button"
+                            },
+                            "x": 830,
+                            "y": 690
+                        },
+                        {
+                            "type": "Text",
+                            "id": "85ad0ff7-2449-4eb3-88f2-98ea87e74d4d",
+                            "label": "best_score",
+                            "scope": "CLASS",
+                            "x": 961,
+                            "y": 450,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "HIGH SCORE: 00",
+                            "align": "center",
+                            "fontFamily": "Bungee",
+                            "fontSize": "36px",
+                            "color": "#ffe7c5"
+                        },
+                        {
+                            "type": "Text",
+                            "id": "2c47365a-ce87-4882-b3a7-318b8d5ced29",
+                            "label": "current_score",
+                            "scope": "CLASS",
+                            "x": 960,
+                            "y": 570,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "YOUR SCORE: 00",
+                            "align": "center",
+                            "fontFamily": "Bungee",
+                            "fontSize": "46px",
+                            "color": "#ffe7c5"
                         }
                     ]
                 },
                 {
-                    "type": "Image",
-                    "id": "36ce0da8-73b0-4f44-a188-eff9f08ba455",
-                    "label": "home_button",
-                    "scope": "CLASS",
-                    "texture": {
-                        "key": "home-button"
-                    },
-                    "x": 1807,
-                    "y": 58
+                    "type": "Container",
+                    "id": "90e9cb67-d2b9-4155-9eda-3ed06c4ec1ba",
+                    "label": "container_audio",
+                    "y": -7,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "88f62858-0bac-45aa-9043-e2e29381275e",
+                            "label": "sound_button",
+                            "useGameObjectName": true,
+                            "scope": "CLASS",
+                            "hitArea.shape": "PIXEL_PERFECT",
+                            "texture": {
+                                "key": "sound-on-button"
+                            },
+                            "x": 1851,
+                            "y": 63
+                        },
+                        {
+                            "type": "Image",
+                            "id": "3e80073f-4005-4ae4-9bb8-1192950a5b48",
+                            "label": "music_button",
+                            "useGameObjectName": true,
+                            "scope": "CLASS",
+                            "hitArea.shape": "PIXEL_PERFECT",
+                            "texture": {
+                                "key": "music-on-button"
+                            },
+                            "x": 1728,
+                            "y": 64
+                        }
+                    ]
                 }
             ]
         }

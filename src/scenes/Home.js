@@ -23,13 +23,21 @@ class Home extends Phaser.Scene {
 		const logo = new LogoPrefab(this, 960, 588);
 		this.add.existing(logo);
 
+		// play_button
+		const play_button = this.add.image(960, 919, "play-button");
+		play_button.name = "play_button";
+		play_button.setInteractive(this.input.makePixelPerfect());
+
 		this.logo = logo;
+		this.play_button = play_button;
 
 		this.events.emit("scene-awake");
 	}
 
 	/** @type {LogoPrefab} */
 	logo;
+	/** @type {Phaser.GameObjects.Image} */
+	play_button;
 
 	/* START-USER-CODE */
 
@@ -39,11 +47,15 @@ class Home extends Phaser.Scene {
 
 		this.editorCreate();
 		this.oTweenManager = new TweenManager(this);
+		this.oInputManager = new InputManager(this);
 		this.oTweenManager.ballAnimation();
 		this.particalAnimation();
+		this.oInputManager.buttonClick(this.play_button);
+		localStorage.setItem('shadowLeapBestScore', localStorage.getItem('shadowLeapBestScore') == undefined ? 0 : localStorage.getItem('shadowLeapBestScore'));
+
 	}
 	particalAnimation() {
-		const createParticleEmitter = (texture, offsetX, offsetY, speed, scaleStart, scaleEnd, alphaSart, alphaEnd,	 ball, lifespanMin, lifespanMax) => {
+		const createParticleEmitter = (texture, offsetX, offsetY, speed, scaleStart, scaleEnd, alphaSart, alphaEnd, ball, lifespanMin, lifespanMax) => {
 			const particleSystem = this.add.particles();
 			particleSystem.setTexture(texture);
 			const emitter = particleSystem.createEmitter({

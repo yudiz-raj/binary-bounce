@@ -27,9 +27,24 @@
                 "key": "InputManager"
             },
             {
+                "url": "assets/images/game play/music-off-button.png",
+                "type": "image",
+                "key": "music-off-button"
+            },
+            {
+                "url": "assets/images/game play/music-on-button.png",
+                "type": "image",
+                "key": "music-on-button"
+            },
+            {
                 "url": "assets/images/game play/pink-barrier.png",
                 "type": "image",
                 "key": "pink-barrier"
+            },
+            {
+                "url": "assets/images/splash screen/play-button.png",
+                "type": "image",
+                "key": "play-button"
             },
             {
                 "url": "assets/images/game over/retry-button.png",
@@ -50,6 +65,16 @@
                 "url": "src/scripts/SocketManager.js",
                 "type": "script",
                 "key": "SocketManager"
+            },
+            {
+                "url": "assets/images/game play/sound-off-button.png",
+                "type": "image",
+                "key": "sound-off-button"
+            },
+            {
+                "url": "assets/images/game play/sound-on-button.png",
+                "type": "image",
+                "key": "sound-on-button"
             },
             {
                 "url": "src/scripts/SoundManager.js",

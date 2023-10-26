@@ -20,4 +20,48 @@ class TweenManager {
             yoyo: true,
         });
     }
+    buttonAnimation(target) {
+        console.log(target);
+        this.oScene.tweens.add({
+            targets: target,
+            scale: "-=0.08",
+            ease: "power2",
+            duration: 200,
+            yoyo: true,
+            onComplete: () => {
+                switch (target.name) {
+                    case "home_button":
+                        this.oScene.scene.stop("Level");
+                        this.oScene.scene.start("Home");
+                        break;
+                    case "retry_button":
+                        this.oScene.scene.restart("Level");
+                        break;
+                    case "play_button":
+                        this.oScene.scene.stop("Home");
+                        this.oScene.scene.start("Level");
+                        break;
+                    case "music_button":
+                        if (target.texture.key == "music-on-button") {
+                            target.setTexture("music-off-button");
+                        }
+                        else {
+                            target.setTexture("music-on-button");
+                        }
+                        break;
+                    case "sound_button":
+                        if (target.texture.key == "sound-on-button") {
+                            target.setTexture("sound-off-button");
+                        }
+                        else {
+                            target.setTexture("sound-on-button");
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        });
+    }
 }

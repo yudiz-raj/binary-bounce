@@ -30,6 +30,19 @@
             "scope": "CLASS",
             "x": 960,
             "y": 588
+        },
+        {
+            "type": "Image",
+            "id": "18d60042-e237-4b78-8767-1ce7780f4ccc",
+            "label": "play_button",
+            "useGameObjectName": true,
+            "scope": "CLASS",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "play-button"
+            },
+            "x": 960,
+            "y": 919
         }
     ],
     "plainObjects": [],
