@@ -55,6 +55,7 @@
                             "type": "Image",
                             "id": "9ae4062d-d37f-497e-acf9-b37fbfbb3ecb",
                             "label": "background",
+                            "useGameObjectName": true,
                             "scope": "CLASS",
                             "texture": {
                                 "key": "background"
@@ -242,6 +243,13 @@
                     "type": "Container",
                     "id": "4e3bb52b-5102-4c7e-a087-aea0e02a90bd",
                     "label": "container_balls",
+                    "scope": "CLASS",
+                    "y": -7
+                },
+                {
+                    "type": "Container",
+                    "id": "5ca905fb-de09-4bd1-9644-364a5d3c4237",
+                    "label": "container_particles",
                     "scope": "CLASS",
                     "y": -7
                 },

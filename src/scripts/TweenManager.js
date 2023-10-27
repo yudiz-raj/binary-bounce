@@ -21,7 +21,6 @@ class TweenManager {
         });
     }
     buttonAnimation(target) {
-        console.log(target);
         this.oScene.tweens.add({
             targets: target,
             scale: "-=0.08",

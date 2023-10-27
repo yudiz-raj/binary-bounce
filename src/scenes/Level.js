@@ -42,6 +42,7 @@ class Level extends Phaser.Scene {
 
 		// background
 		const background = this.add.image(960, 540, "background");
+		background.name = "background";
 		container_background.add(background);
 
 		// container_barriers
@@ -127,6 +128,10 @@ class Level extends Phaser.Scene {
 		const container_balls = this.add.container(0, -7);
 		body.add(container_balls);
 
+		// container_particles
+		const container_particles = this.add.container(0, -7);
+		body.add(container_particles);
+
 		// container_score
 		const container_score = this.add.container(0, -7);
 		body.add(container_score);
@@ -199,6 +204,7 @@ class Level extends Phaser.Scene {
 		this.container_background = container_background;
 		this.container_barriers = container_barriers;
 		this.container_balls = container_balls;
+		this.container_particles = container_particles;
 		this.score_text = score_text;
 		this.retry_button = retry_button;
 		this.home_button = home_button;
@@ -223,6 +229,8 @@ class Level extends Phaser.Scene {
 	container_barriers;
 	/** @type {Phaser.GameObjects.Container} */
 	container_balls;
+	/** @type {Phaser.GameObjects.Container} */
+	container_particles;
 	/** @type {Phaser.GameObjects.Text} */
 	score_text;
 	/** @type {Phaser.GameObjects.Image} */
@@ -268,6 +276,7 @@ class Level extends Phaser.Scene {
 	particalAnimation() {
 		const createParticleEmitter = (texture, offsetX, offsetY, speed, scaleStart, scaleEnd, ball, lifespanMin, lifespanMax) => {
 			const particleSystem = this.add.particles();
+			this.container_particles.add(particleSystem);
 			particleSystem.setTexture(texture);
 			const emitter = particleSystem.createEmitter({
 				speed: speed,
@@ -318,10 +327,12 @@ class Level extends Phaser.Scene {
 		this.particalAnimation();
 
 		this.container_background.list.forEach((background) => {
-			this.physics.add.existing(background, false);
-			background.body.setSize(128, 128);
-			background.body.setOffset(0, 0);
-			background.body.immovable = true;
+			if (background.name != "background") {
+				this.physics.add.existing(background, false);
+				background.body.setSize(128, 128);
+				background.body.setOffset(0, 0);
+				background.body.immovable = true;
+			}
 		})
 
 
@@ -337,7 +348,7 @@ class Level extends Phaser.Scene {
 			this.barriarGroup.add(barrier);
 		})
 
-		this.physics.add.collider(this.lower_ball, this.upper_ball, () => {
+		this.ballCollider = this.physics.add.collider(this.lower_ball, this.upper_ball, () => {
 			this.lower_ball.body.setBounceY(0.85);
 			this.lower_ball.setX(this.upper_ball.x);
 		})
@@ -352,7 +363,6 @@ class Level extends Phaser.Scene {
 
 		this.physics.add.collider(this.ballGroup, this.barriarGroup, (barrier, ball) => {
 			this.physics.pause();
-			console.log(ball.body.velocity.y);
 			clearInterval(this.scoreInterval);
 			this.gameOver = true;
 			localStorage.setItem("shadowLeapCurrentScore", this.score - 1);
