@@ -21,11 +21,12 @@ class TweenManager {
         });
     }
     buttonAnimation(target) {
+        target.disableInteractive();
         this.oScene.tweens.add({
             targets: target,
             scale: "-=0.08",
             ease: "power2",
-            duration: 200,
+            duration: 100,
             yoyo: true,
             onComplete: () => {
                 switch (target.name) {
@@ -56,10 +57,10 @@ class TweenManager {
                             target.setTexture("sound-on-button");
                         }
                         break;
-
                     default:
                         break;
                 }
+                target.setInteractive();
             }
         });
     }

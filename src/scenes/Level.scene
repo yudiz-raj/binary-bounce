@@ -27,14 +27,16 @@
                             "id": "82e17e11-38c6-42da-bfc8-3bcb695ec297",
                             "label": "lower_background",
                             "scope": "CLASS",
-                            "y": 554,
+                            "x": 2,
+                            "y": 551,
                             "scaleX": 15,
                             "scaleY": 4.27,
                             "originX": 0,
                             "originY": 0,
+                            "visible": false,
                             "isFilled": true,
                             "fillColor": "#000000",
-                            "width": 128,
+                            "width": 127.7,
                             "height": 128
                         },
                         {
@@ -42,13 +44,14 @@
                             "id": "a28fb43c-f9cc-4b96-93c3-b2cfe493c610",
                             "label": "upper_background",
                             "scope": "CLASS",
-                            "y": 554,
+                            "x": 2,
+                            "y": 551,
                             "scaleX": 15,
                             "scaleY": 4.27,
                             "originX": 0,
                             "originY": 1,
                             "isFilled": true,
-                            "width": 128,
+                            "width": 127.7,
                             "height": 128
                         },
                         {
@@ -61,7 +64,7 @@
                                 "key": "background"
                             },
                             "x": 960,
-                            "y": 540
+                            "y": 537
                         }
                     ]
                 },
@@ -80,7 +83,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 1120,
-                            "y": 550,
+                            "y": 548,
                             "originY": 1
                         },
                         {
@@ -90,8 +93,8 @@
                             "texture": {
                                 "key": "pink-barrier"
                             },
-                            "x": 2683,
-                            "y": 550,
+                            "x": 2589,
+                            "y": 545,
                             "originY": 0
                         },
                         {
@@ -102,7 +105,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 4032,
-                            "y": 550,
+                            "y": 548,
                             "originY": 1
                         },
                         {
@@ -113,7 +116,7 @@
                                 "key": "pink-barrier"
                             },
                             "x": 4032,
-                            "y": 550,
+                            "y": 545,
                             "originY": 0
                         },
                         {
@@ -124,7 +127,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 5245,
-                            "y": 550,
+                            "y": 548,
                             "originY": 1
                         },
                         {
@@ -135,7 +138,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 6214,
-                            "y": 550,
+                            "y": 548,
                             "originY": 1
                         },
                         {
@@ -146,7 +149,7 @@
                                 "key": "pink-barrier"
                             },
                             "x": 7187,
-                            "y": 550,
+                            "y": 545,
                             "originY": 0
                         },
                         {
@@ -157,7 +160,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 8257,
-                            "y": 550,
+                            "y": 548,
                             "originY": 1
                         },
                         {
@@ -168,7 +171,7 @@
                                 "key": "pink-barrier"
                             },
                             "x": 9330,
-                            "y": 550,
+                            "y": 545,
                             "originY": 0
                         },
                         {
@@ -176,10 +179,10 @@
                             "id": "dade5641-f976-49bc-a6ad-acc67e2aa2fa",
                             "label": "barrier_10",
                             "texture": {
-                                "key": "pink-barrier"
+                                "key": "blue-barrier"
                             },
                             "x": 10691,
-                            "y": 550,
+                            "y": 548,
                             "originY": 1
                         },
                         {
@@ -187,10 +190,10 @@
                             "id": "d37a054e-ec51-42a9-a2b6-97a3aa637369",
                             "label": "barrier_11",
                             "texture": {
-                                "key": "blue-barrier"
+                                "key": "pink-barrier"
                             },
                             "x": 10691,
-                            "y": 609.5,
+                            "y": 606.5,
                             "originY": 0
                         },
                         {
@@ -201,7 +204,7 @@
                                 "key": "blue-barrier"
                             },
                             "x": 12316,
-                            "y": 431,
+                            "y": 428,
                             "originY": 1
                         },
                         {
@@ -212,7 +215,7 @@
                                 "key": "pink-barrier"
                             },
                             "x": 12316,
-                            "y": 635,
+                            "y": 632,
                             "originY": 0
                         },
                         {
@@ -220,10 +223,10 @@
                             "id": "f0df57cd-9792-414f-a3a4-025b24b1b849",
                             "label": "barrier_14",
                             "texture": {
-                                "key": "blue-barrier"
+                                "key": "pink-barrier"
                             },
                             "x": 13370,
-                            "y": 704.7000122070312,
+                            "y": 701.7000122070312,
                             "originY": 0
                         },
                         {
@@ -234,7 +237,7 @@
                                 "key": "pink-barrier"
                             },
                             "x": 14157,
-                            "y": 550,
+                            "y": 545,
                             "originY": 0
                         }
                     ]
