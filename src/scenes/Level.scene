@@ -269,7 +269,7 @@
                             "texture": {
                                 "key": "score-bar"
                             },
-                            "x": 165,
+                            "x": 960,
                             "y": 63
                         },
                         {
@@ -277,7 +277,7 @@
                             "id": "cd580b1b-b204-4466-b580-c8cf883d76ef",
                             "label": "score_text",
                             "scope": "CLASS",
-                            "x": 39,
+                            "x": 834,
                             "y": 55,
                             "originY": 0.5,
                             "text": "Score:   00",
@@ -395,7 +395,7 @@
                                 "key": "music-on-button"
                             },
                             "x": 1728,
-                            "y": 64
+                            "y": 63
                         }
                     ]
                 }

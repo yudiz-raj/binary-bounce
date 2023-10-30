@@ -138,11 +138,11 @@ class Level extends Phaser.Scene {
 		body.add(container_score);
 
 		// score_bar
-		const score_bar = this.add.image(165, 63, "score-bar");
+		const score_bar = this.add.image(960, 63, "score-bar");
 		container_score.add(score_bar);
 
 		// score_text
-		const score_text = this.add.text(39, 55, "", {});
+		const score_text = this.add.text(834, 55, "", {});
 		score_text.setOrigin(0, 0.5);
 		score_text.text = "Score:   00";
 		score_text.setStyle({ "align": "center", "color": "#431b59", "fontFamily": "Bungee", "fontSize": "40px", "fontStyle": "italic" });
@@ -194,7 +194,7 @@ class Level extends Phaser.Scene {
 		container_audio.add(sound_button);
 
 		// music_button
-		const music_button = this.add.image(1728, 64, "music-on-button");
+		const music_button = this.add.image(1728, 63, "music-on-button");
 		music_button.name = "music_button";
 		music_button.setInteractive(this.input.makePixelPerfect());
 		container_audio.add(music_button);
@@ -305,6 +305,7 @@ class Level extends Phaser.Scene {
 		this.oTweenManager = new TweenManager(this);
 		this.oInputManager = new InputManager(this);
 		localStorage.setItem("shadowLeapCurrentScore", 0);
+		this.nSpeed = 20;
 		this.isPointerDown = false;
 		this.gameOver = false;
 		this.clearTimer();
@@ -318,7 +319,7 @@ class Level extends Phaser.Scene {
 
 		this.upper_ball = this.ballGroup.create(188, 543, "fire-ball")
 		this.upper_ball.setOrigin(0.5, 1);
-		this.upper_ball.body.setCircle(65, 55, 37).setGravityY(3000).setCollideWorldBounds(true);
+		this.upper_ball.body.setCircle(65, 55, 36).setGravityY(3000).setCollideWorldBounds(true);
 		this.container_balls.add(this.upper_ball);
 		this.lower_ball = this.ballGroup.create(188, 541, "Ice-ball");
 		this.lower_ball.setOrigin(0.5, 0);
@@ -336,7 +337,6 @@ class Level extends Phaser.Scene {
 			}
 		})
 
-
 		this.container_barriers.list.forEach((barrier) => {
 			this.physics.add.existing(barrier, true);
 			barrier.body.setSize(145, 110);
@@ -350,7 +350,16 @@ class Level extends Phaser.Scene {
 		})
 
 		this.ballCollider = this.physics.add.collider(this.lower_ball, this.upper_ball, () => {
-			this.lower_ball.body.setBounceY(0.85);
+			// if (this.score > 50 && this.score < 100) {
+			// 	this.nSpeed = 28;
+			// }
+			// if (this.score > 100 && this.score < 200) {
+			// 	this.nSpeed = 32;
+			// }
+			// if (this.score > 200) {
+			// 	this.nSpeed = 38;
+			// }
+			this.lower_ball.body.setBounceY(0.9);
 			this.lower_ball.setX(this.upper_ball.x);
 		})
 
@@ -363,7 +372,6 @@ class Level extends Phaser.Scene {
 		})
 
 		this.physics.add.collider(this.ballGroup, this.barriarGroup, (barrier, ball) => {
-			console.log("collide");
 			this.physics.pause();
 			clearInterval(this.scoreInterval);
 			this.gameOver = true;
@@ -385,7 +393,6 @@ class Level extends Phaser.Scene {
 
 	update() {
 		if (!this.gameOver) {
-
 			let cursors = this.input.keyboard.createCursorKeys();
 			if (cursors.up.isDown || this.isPointerDown) {
 				this.upper_ball.body.setVelocityY(-2000);
@@ -395,9 +402,12 @@ class Level extends Phaser.Scene {
 					barrier.x += 14037;
 					barrier.body.x += 14037;
 				}
-				barrier.x -= 20;
-				barrier.body.x -= 20;
+				barrier.x -= this.nSpeed;
+				barrier.body.x -= this.nSpeed;
 			})
+			if (this.nSpeed < 50) {
+				this.nSpeed += 0.01;
+			}
 		}
 	}
 	/* END-USER-CODE */

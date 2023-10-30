@@ -43,9 +43,33 @@
                 "x",
                 "y"
             ],
-            "label": "logoPrefab",
+            "label": "logo",
+            "scope": "CLASS",
             "x": 960,
             "y": 588
+        },
+        {
+            "type": "Image",
+            "id": "aa6a1127-f7b9-496d-870f-c0be51b91179",
+            "label": "outerbar",
+            "texture": {
+                "key": "outerbar"
+            },
+            "x": 960,
+            "y": 919
+        },
+        {
+            "type": "Image",
+            "id": "5c31e05c-00a0-46af-8e9b-b9150aa90174",
+            "label": "innerBar",
+            "scope": "CLASS",
+            "texture": {
+                "key": "innerBar"
+            },
+            "x": 745,
+            "y": 911,
+            "originX": 0,
+            "visible": false
         }
     ],
     "plainObjects": [],

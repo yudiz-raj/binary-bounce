@@ -43,6 +43,32 @@
             },
             "x": 960,
             "y": 919
+        },
+        {
+            "type": "Image",
+            "id": "3261658b-3d9b-4eb5-8c20-bfb52549427d",
+            "label": "music_button",
+            "useGameObjectName": true,
+            "scope": "CLASS",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "music-on-button"
+            },
+            "x": 1728,
+            "y": 63
+        },
+        {
+            "type": "Image",
+            "id": "807d1dfa-a266-4e73-a8b6-9c2416d3dc5e",
+            "label": "sound_button",
+            "useGameObjectName": true,
+            "scope": "CLASS",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "sound-on-button"
+            },
+            "x": 1851,
+            "y": 63
         }
     ],
     "plainObjects": [],

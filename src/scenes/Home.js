@@ -28,8 +28,20 @@ class Home extends Phaser.Scene {
 		play_button.name = "play_button";
 		play_button.setInteractive(this.input.makePixelPerfect());
 
+		// music_button
+		const music_button = this.add.image(1728, 63, "music-on-button");
+		music_button.name = "music_button";
+		music_button.setInteractive(this.input.makePixelPerfect());
+
+		// sound_button
+		const sound_button = this.add.image(1851, 63, "sound-on-button");
+		sound_button.name = "sound_button";
+		sound_button.setInteractive(this.input.makePixelPerfect());
+
 		this.logo = logo;
 		this.play_button = play_button;
+		this.music_button = music_button;
+		this.sound_button = sound_button;
 
 		this.events.emit("scene-awake");
 	}
@@ -38,6 +50,10 @@ class Home extends Phaser.Scene {
 	logo;
 	/** @type {Phaser.GameObjects.Image} */
 	play_button;
+	/** @type {Phaser.GameObjects.Image} */
+	music_button;
+	/** @type {Phaser.GameObjects.Image} */
+	sound_button;
 
 	/* START-USER-CODE */
 
@@ -51,6 +67,8 @@ class Home extends Phaser.Scene {
 		this.oTweenManager.ballAnimation();
 		this.particalAnimation();
 		this.oInputManager.buttonClick(this.play_button);
+		this.oInputManager.buttonClick(this.sound_button);
+		this.oInputManager.buttonClick(this.music_button);
 		localStorage.setItem('shadowLeapBestScore', localStorage.getItem('shadowLeapBestScore') == undefined ? 0 : localStorage.getItem('shadowLeapBestScore'));
 
 	}
