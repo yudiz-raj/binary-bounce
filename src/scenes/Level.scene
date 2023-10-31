@@ -64,7 +64,7 @@
                                 "key": "background"
                             },
                             "x": 960,
-                            "y": 537
+                            "y": 536
                         }
                     ]
                 },
@@ -73,174 +73,7 @@
                     "id": "5e743ca8-6ef4-4597-af10-857bec80e3c8",
                     "label": "container_barriers",
                     "scope": "CLASS",
-                    "y": 1,
-                    "list": [
-                        {
-                            "type": "Image",
-                            "id": "e7901cc0-d8ab-4125-8eea-6346fe12c47e",
-                            "label": "barrier_1",
-                            "texture": {
-                                "key": "blue-barrier"
-                            },
-                            "x": 1120,
-                            "y": 548,
-                            "originY": 1
-                        },
-                        {
-                            "type": "Image",
-                            "id": "b7d5e7b6-15c7-4651-9c4c-f990380f89fe",
-                            "label": "barrier_2",
-                            "texture": {
-                                "key": "pink-barrier"
-                            },
-                            "x": 2589,
-                            "y": 545,
-                            "originY": 0
-                        },
-                        {
-                            "type": "Image",
-                            "id": "934cdefe-29ec-428c-967c-d3e808be0c9f",
-                            "label": "barrier_3",
-                            "texture": {
-                                "key": "blue-barrier"
-                            },
-                            "x": 4032,
-                            "y": 548,
-                            "originY": 1
-                        },
-                        {
-                            "type": "Image",
-                            "id": "f97da727-652c-4399-9bfd-81d9d41e1534",
-                            "label": "barrier_4",
-                            "texture": {
-                                "key": "pink-barrier"
-                            },
-                            "x": 4032,
-                            "y": 545,
-                            "originY": 0
-                        },
-                        {
-                            "type": "Image",
-                            "id": "058ab47c-afec-42ca-87eb-c9c060cbd4db",
-                            "label": "barrier_5",
-                            "texture": {
-                                "key": "blue-barrier"
-                            },
-                            "x": 5245,
-                            "y": 548,
-                            "originY": 1
-                        },
-                        {
-                            "type": "Image",
-                            "id": "ec0b05d3-e265-4c1f-b360-997946ec4d1e",
-                            "label": "barrier_6",
-                            "texture": {
-                                "key": "blue-barrier"
-                            },
-                            "x": 6214,
-                            "y": 548,
-                            "originY": 1
-                        },
-                        {
-                            "type": "Image",
-                            "id": "36377d3b-04d6-4dde-b1ac-4c9e287de9f8",
-                            "label": "barrier_7",
-                            "texture": {
-                                "key": "pink-barrier"
-                            },
-                            "x": 7187,
-                            "y": 545,
-                            "originY": 0
-                        },
-                        {
-                            "type": "Image",
-                            "id": "bac342d4-00b0-44a5-9f49-6fc4d61d357c",
-                            "label": "barrier_8",
-                            "texture": {
-                                "key": "blue-barrier"
-                            },
-                            "x": 8257,
-                            "y": 548,
-                            "originY": 1
-                        },
-                        {
-                            "type": "Image",
-                            "id": "20b54016-98fd-44f6-bacf-20058a49add0",
-                            "label": "barrier_9",
-                            "texture": {
-                                "key": "pink-barrier"
-                            },
-                            "x": 9330,
-                            "y": 545,
-                            "originY": 0
-                        },
-                        {
-                            "type": "Image",
-                            "id": "dade5641-f976-49bc-a6ad-acc67e2aa2fa",
-                            "label": "barrier_10",
-                            "texture": {
-                                "key": "blue-barrier"
-                            },
-                            "x": 10691,
-                            "y": 548,
-                            "originY": 1
-                        },
-                        {
-                            "type": "Image",
-                            "id": "d37a054e-ec51-42a9-a2b6-97a3aa637369",
-                            "label": "barrier_11",
-                            "texture": {
-                                "key": "pink-barrier"
-                            },
-                            "x": 10691,
-                            "y": 606.5,
-                            "originY": 0
-                        },
-                        {
-                            "type": "Image",
-                            "id": "63f7ede3-64e6-430b-b762-9962fedef939",
-                            "label": "barrier_12",
-                            "texture": {
-                                "key": "blue-barrier"
-                            },
-                            "x": 12316,
-                            "y": 428,
-                            "originY": 1
-                        },
-                        {
-                            "type": "Image",
-                            "id": "db309817-3200-4153-94a6-f715241d2f55",
-                            "label": "barrier_13",
-                            "texture": {
-                                "key": "pink-barrier"
-                            },
-                            "x": 12316,
-                            "y": 632,
-                            "originY": 0
-                        },
-                        {
-                            "type": "Image",
-                            "id": "f0df57cd-9792-414f-a3a4-025b24b1b849",
-                            "label": "barrier_14",
-                            "texture": {
-                                "key": "pink-barrier"
-                            },
-                            "x": 13370,
-                            "y": 701.7000122070312,
-                            "originY": 0
-                        },
-                        {
-                            "type": "Image",
-                            "id": "07748a23-dd2a-4046-bf84-84b14e850d81",
-                            "label": "barrier_15",
-                            "texture": {
-                                "key": "pink-barrier"
-                            },
-                            "x": 14157,
-                            "y": 545,
-                            "originY": 0
-                        }
-                    ]
+                    "y": 1
                 },
                 {
                     "type": "Container",
@@ -280,7 +113,7 @@
                             "x": 834,
                             "y": 55,
                             "originY": 0.5,
-                            "text": "Score:   00",
+                            "text": "Score:   00 ",
                             "align": "center",
                             "fontFamily": "Bungee",
                             "fontSize": "40px",

@@ -42,88 +42,13 @@ class Level extends Phaser.Scene {
 		container_background.add(upper_background);
 
 		// background
-		const background = this.add.image(960, 537, "background");
+		const background = this.add.image(960, 536, "background");
 		background.name = "background";
 		container_background.add(background);
 
 		// container_barriers
 		const container_barriers = this.add.container(0, 1);
 		body.add(container_barriers);
-
-		// barrier_1
-		const barrier_1 = this.add.image(1120, 548, "blue-barrier");
-		barrier_1.setOrigin(0.5, 1);
-		container_barriers.add(barrier_1);
-
-		// barrier_2
-		const barrier_2 = this.add.image(2589, 545, "pink-barrier");
-		barrier_2.setOrigin(0.5, 0);
-		container_barriers.add(barrier_2);
-
-		// barrier_3
-		const barrier_3 = this.add.image(4032, 548, "blue-barrier");
-		barrier_3.setOrigin(0.5, 1);
-		container_barriers.add(barrier_3);
-
-		// barrier_4
-		const barrier_4 = this.add.image(4032, 545, "pink-barrier");
-		barrier_4.setOrigin(0.5, 0);
-		container_barriers.add(barrier_4);
-
-		// barrier_5
-		const barrier_5 = this.add.image(5245, 548, "blue-barrier");
-		barrier_5.setOrigin(0.5, 1);
-		container_barriers.add(barrier_5);
-
-		// barrier_6
-		const barrier_6 = this.add.image(6214, 548, "blue-barrier");
-		barrier_6.setOrigin(0.5, 1);
-		container_barriers.add(barrier_6);
-
-		// barrier_7
-		const barrier_7 = this.add.image(7187, 545, "pink-barrier");
-		barrier_7.setOrigin(0.5, 0);
-		container_barriers.add(barrier_7);
-
-		// barrier_8
-		const barrier_8 = this.add.image(8257, 548, "blue-barrier");
-		barrier_8.setOrigin(0.5, 1);
-		container_barriers.add(barrier_8);
-
-		// barrier_9
-		const barrier_9 = this.add.image(9330, 545, "pink-barrier");
-		barrier_9.setOrigin(0.5, 0);
-		container_barriers.add(barrier_9);
-
-		// barrier_10
-		const barrier_10 = this.add.image(10691, 548, "blue-barrier");
-		barrier_10.setOrigin(0.5, 1);
-		container_barriers.add(barrier_10);
-
-		// barrier_11
-		const barrier_11 = this.add.image(10691, 606.5, "pink-barrier");
-		barrier_11.setOrigin(0.5, 0);
-		container_barriers.add(barrier_11);
-
-		// barrier_12
-		const barrier_12 = this.add.image(12316, 428, "blue-barrier");
-		barrier_12.setOrigin(0.5, 1);
-		container_barriers.add(barrier_12);
-
-		// barrier_13
-		const barrier_13 = this.add.image(12316, 632, "pink-barrier");
-		barrier_13.setOrigin(0.5, 0);
-		container_barriers.add(barrier_13);
-
-		// barrier_14
-		const barrier_14 = this.add.image(13370, 701.7000122070312, "pink-barrier");
-		barrier_14.setOrigin(0.5, 0);
-		container_barriers.add(barrier_14);
-
-		// barrier_15
-		const barrier_15 = this.add.image(14157, 545, "pink-barrier");
-		barrier_15.setOrigin(0.5, 0);
-		container_barriers.add(barrier_15);
 
 		// container_balls
 		const container_balls = this.add.container(0, -7);
@@ -144,7 +69,7 @@ class Level extends Phaser.Scene {
 		// score_text
 		const score_text = this.add.text(834, 55, "", {});
 		score_text.setOrigin(0, 0.5);
-		score_text.text = "Score:   00";
+		score_text.text = "Score:   00 ";
 		score_text.setStyle({ "align": "center", "color": "#431b59", "fontFamily": "Bungee", "fontSize": "40px", "fontStyle": "italic" });
 		container_score.add(score_text);
 
@@ -268,7 +193,7 @@ class Level extends Phaser.Scene {
 			if (!this.scene.isPaused("Level")) {
 				this.score++;
 			}
-		}, 100);
+		}, 500);
 	}
 	clearTimer() {
 		clearInterval(this.scoreInterval);
@@ -307,26 +232,27 @@ class Level extends Phaser.Scene {
 		localStorage.setItem("shadowLeapCurrentScore", 0);
 		this.nSpeed = 20;
 		this.isPointerDown = false;
-		this.gameOver = false;
+		this.gameOver = true;
 		this.clearTimer();
 		this.barriarGroup = this.add.group();
 		this.ballGroup = this.physics.add.group();
-
+		
 		this.oInputManager.buttonClick(this.retry_button);
 		this.oInputManager.buttonClick(this.home_button);
 		this.oInputManager.buttonClick(this.sound_button);
 		this.oInputManager.buttonClick(this.music_button);
-
-		this.upper_ball = this.ballGroup.create(188, 543, "fire-ball")
+		
+		this.upper_ball = this.ballGroup.create(188, 544, "fire-ball")
 		this.upper_ball.setOrigin(0.5, 1);
 		this.upper_ball.body.setCircle(65, 55, 36).setGravityY(3000).setCollideWorldBounds(true);
 		this.container_balls.add(this.upper_ball);
 		this.lower_ball = this.ballGroup.create(188, 541, "Ice-ball");
 		this.lower_ball.setOrigin(0.5, 0);
-		this.lower_ball.body.setCircle(65, 55, 40).setGravityY(-3000).setCollideWorldBounds(true);
+		this.lower_ball.body.setCircle(65, 55, 40).setGravityY(-3000).setCollideWorldBounds(true).setBounceY(0.9);
 		this.container_balls.add(this.lower_ball);
-
+		
 		this.particalAnimation();
+		this.setBarriers();
 
 		this.container_background.list.forEach((background) => {
 			if (background.name != "background") {
@@ -335,34 +261,12 @@ class Level extends Phaser.Scene {
 				background.body.setOffset(0, 0);
 				background.body.immovable = true;
 			}
-		})
-
-		this.container_barriers.list.forEach((barrier) => {
-			this.physics.add.existing(barrier, true);
-			barrier.body.setSize(145, 110);
-			if (barrier.texture.key == "blue-barrier") {
-				barrier.body.setOffset(1, 8);
-			}
-			else {
-				barrier.body.setOffset(1, 16);
-			}
-			this.barriarGroup.add(barrier);
-		})
+		});
 
 		this.ballCollider = this.physics.add.collider(this.lower_ball, this.upper_ball, () => {
-			// if (this.score > 50 && this.score < 100) {
-			// 	this.nSpeed = 28;
-			// }
-			// if (this.score > 100 && this.score < 200) {
-			// 	this.nSpeed = 32;
-			// }
-			// if (this.score > 200) {
-			// 	this.nSpeed = 38;
-			// }
 			this.lower_ball.body.setBounceY(0.9);
 			this.lower_ball.setX(this.upper_ball.x);
 		})
-
 
 		this.physics.add.collider(this.lower_ball, this.upper_background, () => {
 			this.lower_ball.body.setVelocityY(0);
@@ -374,6 +278,8 @@ class Level extends Phaser.Scene {
 		this.physics.add.collider(this.ballGroup, this.barriarGroup, (barrier, ball) => {
 			this.physics.pause();
 			clearInterval(this.scoreInterval);
+			clearInterval(this.generateBarrierInterval);
+			clearInterval(this.generationSpeedInterval);
 			this.gameOver = true;
 			localStorage.setItem("shadowLeapCurrentScore", this.score - 1);
 			Number(localStorage.getItem('shadowLeapBestScore')) <= Number(this.score - 1) ?
@@ -390,23 +296,85 @@ class Level extends Phaser.Scene {
 			this.isPointerDown = false;
 		})
 	}
+	setBarriers() {
+		let barrierCount = 0;
+		this.nTime = 500;
+		this.nMax = 2500;
+		this.nMin = 1500;
+		this.generationSpeed = 0;
 
+		const generateLowerBarriers = () => {
+			const nRandomXLower = Math.floor(Math.random() * (this.nMax - this.nMin)) + this.nMin;
+			let lower_barrier;
+			if (barrierCount > 3) {
+				barrierCount = 0;
+				this.nTime = 500;
+				lower_barrier = this.physics.add.staticSprite(this.container_barriers.list[this.container_barriers.list.length - 1].x, 545, "pink-barrier").setOrigin(0.5, 0);
+			}
+			else {
+				this.nTime = 1000;
+				lower_barrier = this.physics.add.staticSprite(this.container_barriers.list[this.container_barriers.list.length - 1].x + nRandomXLower, 545, "pink-barrier").setOrigin(0.5, 0);
+			}
+			this.barriarGroup.add(lower_barrier);
+			lower_barrier.setSize(150, 100);
+			lower_barrier.setOffset(0, 90);
+			this.container_barriers.add(lower_barrier);
+		}
+		const generateUpperBarriers = () => {
+			const nRandomXUpper = Math.floor(Math.random() * (this.nMax - this.nMin)) + this.nMin;
+			let upper_barrier;
+			if (this.container_barriers.list.length <= 0) {
+				upper_barrier = this.physics.add.staticSprite(nRandomXUpper, 550, "blue-barrier").setOrigin(0.5, 1);
+			}
+			else {
+				upper_barrier = this.physics.add.staticSprite(this.container_barriers.list[this.container_barriers.list.length - 1].x + nRandomXUpper, 550, "blue-barrier").setOrigin(0.5, 1);
+			}
+			this.barriarGroup.add(upper_barrier);
+			upper_barrier.setSize(150, 100);
+			upper_barrier.setOffset(0, -50);
+			this.container_barriers.add(upper_barrier);
+			barrierCount++;
+			generateLowerBarriers();
+		}
+		this.generateBarrierInterval = setInterval(() => {
+			if (this.generationSpeed > 50 && this.generationSpeed < 100) {
+				this.nMax = 2000;
+				this.nMin = 1000;
+			}
+			if (this.generationSpeed > 100 && this.generationSpeed < 150) {
+				this.nMax = 1500;
+				this.nMin = 1000;
+			}
+			if (this.generationSpeed > 150) {
+				this.nMax = 1000;
+				this.nMin = 700;
+			}
+			generateUpperBarriers();
+			this.gameOver = false;
+		}, this.nMax / 5);
+		this.generationSpeedInterval = setInterval(() => {
+			this.generationSpeed++;
+		}, 100);
+	}
 	update() {
 		if (!this.gameOver) {
 			let cursors = this.input.keyboard.createCursorKeys();
-			if (cursors.up.isDown || this.isPointerDown) {
+			if (this.isPointerDown || cursors.up.isDown) {
 				this.upper_ball.body.setVelocityY(-2000);
 			}
 			this.container_barriers.getAll().forEach((barrier) => {
 				if (barrier.x < -200) {
-					barrier.x += 14037;
-					barrier.body.x += 14037;
+					// barrier.x += 14037;
+					// barrier.body.x += 14037;
+					barrier.destroy();
 				}
-				barrier.x -= this.nSpeed;
-				barrier.body.x -= this.nSpeed;
+				else {
+					barrier.x -= this.nSpeed;
+					barrier.body.x -= this.nSpeed;
+				}
 			})
-			if (this.nSpeed < 50) {
-				this.nSpeed += 0.01;
+			if (this.nSpeed < 40) {
+				this.nSpeed += 0.004;
 			}
 		}
 	}
