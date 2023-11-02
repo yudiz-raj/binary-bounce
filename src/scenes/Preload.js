@@ -60,11 +60,57 @@ class Preload extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
+	particalAnimation() {
+		this.tweens.add({
+			targets:[this.logo.upper_ball, this.logo.lower_ball],
+			y: -90,
+			ease:"bounce",
+			duration: 3480
+		});
+		this.tweens.add({
+			targets:[this.logo.upper_shadow_ball, this.logo.lower_shadow_ball],
+			y: 12,
+			ease:"bounce",
+			duration: 3480
+		});
+		const createParticleEmitter = (texture, offsetX, offsetY, speed, scaleStart, scaleEnd, alphaSart, alphaEnd, ball, lifespanMin, lifespanMax) => {
+			const particleSystem = this.add.particles();
+			particleSystem.setTexture(texture);
+			const emitter = particleSystem.createEmitter({
+				speed: speed,
+				scale: { start: scaleStart, end: scaleEnd },
+				blendMode: 'ADD',
+				alpha: { start: alphaSart, end: alphaEnd },
+				lifespan: { min: lifespanMin, max: lifespanMax }
+			});
+			emitter.startFollow(ball, offsetX, offsetY);
+			emitter.flow(0, 1);
+			emitter.setGravityX(-200);
+			return particleSystem;
+		}
+		this.bluePartical1 = createParticleEmitter("blue-large", 930, 570, 150, 1, 0, 1, 0, this.logo.lower_ball, 500, 1000);
+		this.bluePartical2 = createParticleEmitter("blue-blur-medium", 990, 560, 150, 1, 0, 1, 0, this.logo.lower_ball, 500, 1000);
+		this.bluePartical3 = createParticleEmitter("blue-blur-large", 990, 630, 150, 1, 0, 1, 0, this.logo.lower_ball, 500, 1000);
+		this.bluePartical4 = createParticleEmitter("blue-fire", 920, 630, 80, 1, 0, 1, 0, this.logo.lower_ball, 500, 1000);
+		this.bluePartical5 = createParticleEmitter("blue-large", 930, 570, 150, 1, 0, 0.1, 0, this.logo.lower_shadow_ball, 500, 1000);
+		this.bluePartical6 = createParticleEmitter("blue-large", 990, 560, 150, 1, 0, 0.1, 0, this.logo.lower_shadow_ball, 500, 1000);
+		this.bluePartical7 = createParticleEmitter("blue-blur-large", 990, 600, 150, 1, 0, 0.1, 0, this.logo.lower_shadow_ball, 500, 1000);
+		this.bluePartical8 = createParticleEmitter("blue-fire", 920, 600, 80, 1, 0, 0.1, 0, this.logo.lower_shadow_ball, 500, 1000);
+		this.redPartical1 = createParticleEmitter("red-large", 930, 570, 150, 1, 0, 1, 0, this.logo.upper_ball, 500, 1000);
+		this.redPartical2 = createParticleEmitter("red-blur-medium", 990, 560, 150, 1, 0, 1, 0, this.logo.upper_ball, 500, 1000);
+		this.redPartical3 = createParticleEmitter("red-blur-large", 990, 630, 150, 1, 0, 1, 0, this.logo.upper_ball, 500, 1000);
+		this.redPartical4 = createParticleEmitter("red-fire", 920, 630, 150, 1, 0, 1, 0, this.logo.upper_ball, 500, 1000);
+		this.bluePartical5 = createParticleEmitter("red-large", 930, 570, 150, 1, 0, 0.1, 0, this.logo.upper_shadow_ball, 500, 1000);
+		this.bluePartical6 = createParticleEmitter("red-large", 990, 560, 150, 1, 0, 0.1, 0, this.logo.upper_shadow_ball, 500, 1000);
+		this.bluePartical7 = createParticleEmitter("red-blur-large", 990, 600, 150, 1, 0, 0.1, 0, this.logo.upper_shadow_ball, 500, 1000);
+		this.bluePartical8 = createParticleEmitter("red-fire", 920, 600, 80, 1, 0, 0.1, 0, this.logo.upper_shadow_ball, 500, 1000);
+	}
 	preload() {
 
 		this.editorCreate();
 
 		this.editorPreload();
+		this.particalAnimation();
 		this.isGameLoaded1 = false;
 		this.isGameLoaded2 = false;
 		this.load.on(Phaser.Loader.Events.COMPLETE, (p) => {

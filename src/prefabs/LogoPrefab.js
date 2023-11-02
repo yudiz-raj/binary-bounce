@@ -9,11 +9,11 @@ class LogoPrefab extends Phaser.GameObjects.Container {
 		super(scene, x ?? 0.0008398355566896498, y ?? 0);
 
 		// upper_ball
-		const upper_ball = scene.add.image(-451.00083993876945, -90, "fire-ball");
+		const upper_ball = scene.add.image(-451, -1293, "fire-ball");
 		this.add(upper_ball);
 
 		// lower_ball
-		const lower_ball = scene.add.image(410.99916006123055, -96, "Ice-ball");
+		const lower_ball = scene.add.image(411, -1293, "Ice-ball");
 		lower_ball.flipX = true;
 		this.add(lower_ball);
 
@@ -22,7 +22,7 @@ class LogoPrefab extends Phaser.GameObjects.Container {
 		this.add(logo_text);
 
 		// lower_shadow_ball
-		const lower_shadow_ball = scene.add.image(415, 14, "Ice-ball");
+		const lower_shadow_ball = scene.add.image(415, 1096, "Ice-ball");
 		lower_shadow_ball.scaleY = 0.52;
 		lower_shadow_ball.flipX = true;
 		lower_shadow_ball.flipY = true;
@@ -34,7 +34,7 @@ class LogoPrefab extends Phaser.GameObjects.Container {
 		this.add(lower_shadow_ball);
 
 		// upper_shadow_ball
-		const upper_shadow_ball = scene.add.image(-448, 12, "fire-ball");
+		const upper_shadow_ball = scene.add.image(-448, 1096, "fire-ball");
 		upper_shadow_ball.scaleY = 0.52;
 		upper_shadow_ball.flipY = true;
 		upper_shadow_ball.alpha = 0.2;

@@ -2,9 +2,37 @@
     "section1": {
         "files": [
             {
+                "url": [
+                    "assets/sounds/background-music.mp3"
+                ],
+                "type": "audio",
+                "key": "background-music"
+            },
+            {
+                "url": [
+                    "assets/sounds/ballCollision-sound.mp3"
+                ],
+                "type": "audio",
+                "key": "ballCollision-sound"
+            },
+            {
+                "url": [
+                    "assets/sounds/barrierCollision-sound.mp3"
+                ],
+                "type": "audio",
+                "key": "barrierCollision-sound"
+            },
+            {
                 "url": "assets/images/game play/blue-barrier.png",
                 "type": "image",
                 "key": "blue-barrier"
+            },
+            {
+                "url": [
+                    "assets/sounds/click-sound.mp3"
+                ],
+                "type": "audio",
+                "key": "click-sound"
             },
             {
                 "url": "src/scripts/GameManager.js",

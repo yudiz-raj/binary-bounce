@@ -64,6 +64,13 @@ class Home extends Phaser.Scene {
 		this.editorCreate();
 		this.oTweenManager = new TweenManager(this);
 		this.oInputManager = new InputManager(this);
+		this.oSoundManager = new SoundManager(this);
+
+		this.oSoundManager.playSound(this.oSoundManager.backgroundMusic, true);
+		this.logo.upper_ball.setY(-90);
+		this.logo.lower_ball.setY(-96);
+		this.logo.upper_shadow_ball.setY(12);
+		this.logo.lower_shadow_ball.setY(14);
 		this.oTweenManager.ballAnimation();
 		this.particalAnimation();
 		this.oInputManager.buttonClick(this.play_button);

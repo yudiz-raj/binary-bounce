@@ -33,6 +33,7 @@ const init = () => {
 		}
 	});
 
+	localStorage.setItem("isShadowLeapAudioOn", true);
 	game.scene.add("Preload", Preload);
 	game.scene.add("Level", Level);
 	game.scene.add("Boot", Boot, true);

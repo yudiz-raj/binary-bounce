@@ -229,6 +229,8 @@ class Level extends Phaser.Scene {
 		this.editorCreate();
 		this.oTweenManager = new TweenManager(this);
 		this.oInputManager = new InputManager(this);
+		this.oSoundManager = new SoundManager(this);
+
 		localStorage.setItem("shadowLeapCurrentScore", 0);
 		this.nSpeed = 20;
 		this.isPointerDown = false;
@@ -236,12 +238,12 @@ class Level extends Phaser.Scene {
 		this.clearTimer();
 		this.barriarGroup = this.add.group();
 		this.ballGroup = this.physics.add.group();
-		
+
 		this.oInputManager.buttonClick(this.retry_button);
 		this.oInputManager.buttonClick(this.home_button);
 		this.oInputManager.buttonClick(this.sound_button);
 		this.oInputManager.buttonClick(this.music_button);
-		
+
 		this.upper_ball = this.ballGroup.create(188, 544, "fire-ball")
 		this.upper_ball.setOrigin(0.5, 1);
 		this.upper_ball.body.setCircle(65, 55, 36).setGravityY(3000).setCollideWorldBounds(true);
@@ -250,7 +252,7 @@ class Level extends Phaser.Scene {
 		this.lower_ball.setOrigin(0.5, 0);
 		this.lower_ball.body.setCircle(65, 55, 40).setGravityY(-3000).setCollideWorldBounds(true).setBounceY(0.9);
 		this.container_balls.add(this.lower_ball);
-		
+
 		this.particalAnimation();
 		this.setBarriers();
 
@@ -264,6 +266,7 @@ class Level extends Phaser.Scene {
 		});
 
 		this.ballCollider = this.physics.add.collider(this.lower_ball, this.upper_ball, () => {
+			this.oSoundManager.playSound(this.oSoundManager.ballCollisionSound, false);
 			this.lower_ball.body.setBounceY(0.9);
 			this.lower_ball.setX(this.upper_ball.x);
 		})
@@ -276,6 +279,7 @@ class Level extends Phaser.Scene {
 		})
 
 		this.physics.add.collider(this.ballGroup, this.barriarGroup, (barrier, ball) => {
+			this.oSoundManager.playSound(this.oSoundManager.barrierCollisionSound, false);
 			this.physics.pause();
 			clearInterval(this.scoreInterval);
 			clearInterval(this.generateBarrierInterval);
