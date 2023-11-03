@@ -31,31 +31,18 @@ class TweenManager {
             onComplete: () => {
                 switch (target.name) {
                     case "home_button":
+                        this.oScene.oSoundManager.stopSound(this.oScene.oSoundManager.backgroundMusic, false);
                         this.oScene.scene.stop("Level");
                         this.oScene.scene.start("Home");
                         break;
                     case "retry_button":
+                        this.oScene.oSoundManager.stopSound(this.oScene.oSoundManager.backgroundMusic, false);
                         this.oScene.scene.restart("Level");
                         break;
                     case "play_button":
+                        this.oScene.oSoundManager.stopSound(this.oScene.oSoundManager.backgroundMusic, false);
                         this.oScene.scene.stop("Home");
                         this.oScene.scene.start("Level");
-                        break;
-                    case "music_button":
-                        if (target.texture.key == "music-on-button") {
-                            target.setTexture("music-off-button");
-                        }
-                        else {
-                            target.setTexture("music-on-button");
-                        }
-                        break;
-                    case "sound_button":
-                        if (target.texture.key == "sound-on-button") {
-                            target.setTexture("sound-off-button");
-                        }
-                        else {
-                            target.setTexture("sound-on-button");
-                        }
                         break;
                     default:
                         break;

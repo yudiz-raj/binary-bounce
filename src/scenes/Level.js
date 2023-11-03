@@ -1,6 +1,10 @@
 
 // You can write more code here
-
+let oParticalData = {
+	texture: ["blue-large", "blue-blur-medium", "blue-blur-large", "blue-fire", "red-large", "red-blur-medium", "red-blur-large", "red-fire"],
+	offsetX: [-40, 20, 40, -40, -40, 20, 40, -40],
+	offsetY: [70, 60, 140, 150, -70, -60, -140, -150],
+}
 /* START OF COMPILED CODE */
 
 class Level extends Phaser.Scene {
@@ -200,29 +204,52 @@ class Level extends Phaser.Scene {
 		this.scoreUpdate();
 	}
 	particalAnimation() {
-		const createParticleEmitter = (texture, offsetX, offsetY, speed, scaleStart, scaleEnd, ball, lifespanMin, lifespanMax) => {
+		let ball;
+		const createParticleEmitter = (texture, offsetX, offsetY, followBall) => {
 			const particleSystem = this.add.particles();
 			this.container_particles.add(particleSystem);
 			particleSystem.setTexture(texture);
 			const emitter = particleSystem.createEmitter({
-				speed: speed,
-				scale: { start: scaleStart, end: scaleEnd },
+				speed: 150,
+				scale: { start: 1, end: 0 },
 				blendMode: 'ADD',
-				lifespan: { min: lifespanMin, max: lifespanMax }
+				lifespan: { min: 500, max: 1000 }
 			});
-			emitter.startFollow(ball, offsetX, offsetY);
+			emitter.startFollow(followBall, offsetX, offsetY);
 			emitter.flow(0, 1);
 			emitter.setGravityX(-200);
 			return particleSystem;
 		}
-		this.bluePartical1 = createParticleEmitter("blue-large", -40, 70, 150, 1, 0, this.lower_ball, 500, 1000);
-		this.bluePartical2 = createParticleEmitter("blue-blur-medium", 20, 60, 150, 1, 0, this.lower_ball, 500, 1000);
-		this.bluePartical3 = createParticleEmitter("blue-blur-large", 40, 140, 150, 1, 0, this.lower_ball, 500, 1000);
-		this.bluePartical4 = createParticleEmitter("blue-fire", -40, 150, 80, 1, 0, this.lower_ball, 500, 1000);
-		this.redPartical1 = createParticleEmitter("red-large", -40, -70, 150, 1, 0, this.upper_ball, 500, 1000);
-		this.redPartical2 = createParticleEmitter("red-blur-medium", 20, -60, 150, 1, 0, this.upper_ball, 500, 1000);
-		this.redPartical3 = createParticleEmitter("red-blur-large", 40, -140, 150, 1, 0, this.upper_ball, 500, 1000);
-		this.redPartical4 = createParticleEmitter("red-fire", -40, -150, 80, 1, 0, this.upper_ball, 500, 1000);
+
+		for (let i = 0; i < oParticalData.texture.length; i++) {
+			i <= 3 ? ball = this.lower_ball : ball = this.upper_ball;
+			this.bluePartical1 = createParticleEmitter(oParticalData.texture[i], oParticalData.offsetX[i], oParticalData.offsetY[i], ball);
+		}
+	}
+	setAudio() {
+		const isMusicOn = (flag) => {
+			flag ? this.music_button.setTexture("music-on-button") : this.music_button.setTexture("music-off-button");
+			localStorage.setItem("isShadowLeapMusicOn", flag);
+			this.oSoundManager.backgroundMusic.setMute(!flag);
+			this.oSoundManager.playSound(this.oSoundManager.backgroundMusic, true);
+		}
+		const isSoundOn = (flag) => {
+			flag ? this.sound_button.setTexture("sound-on-button") : this.sound_button.setTexture("sound-off-button");
+			localStorage.setItem('isShadowLeapSoundOn', flag);
+			this.oSoundManager.clickSound.setMute(!flag);
+			this.oSoundManager.ballCollisionSound.setMute(!flag);
+			this.oSoundManager.barrierCollisionSound.setMute(!flag);
+		}
+		this.sound_button.setInteractive().on('pointerdown', () => {
+			this.oSoundManager.playSound(this.oSoundManager.clickSound, false);
+			isSoundOn(!JSON.parse(localStorage.getItem("isShadowLeapSoundOn")));
+		});
+		this.music_button.setInteractive().on('pointerdown', () => {
+			this.oSoundManager.playSound(this.oSoundManager.clickSound, false);
+			isMusicOn(!JSON.parse(localStorage.getItem("isShadowLeapMusicOn")));
+		});
+		isMusicOn(JSON.parse(localStorage.getItem("isShadowLeapMusicOn")));
+		isSoundOn(JSON.parse(localStorage.getItem("isShadowLeapSoundOn")));
 	}
 	create() {
 
@@ -255,6 +282,7 @@ class Level extends Phaser.Scene {
 
 		this.particalAnimation();
 		this.setBarriers();
+		this.setAudio();
 
 		this.container_background.list.forEach((background) => {
 			if (background.name != "background") {

@@ -58,7 +58,31 @@ class Home extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	// Write your code here
-
+	setAudio() {
+		const isMusicOn = (flag) => {
+			flag ? this.music_button.setTexture("music-on-button") : this.music_button.setTexture("music-off-button");
+			localStorage.setItem("isShadowLeapMusicOn", flag);
+			this.oSoundManager.backgroundMusic.setMute(!flag);
+			this.oSoundManager.playSound(this.oSoundManager.backgroundMusic, true);
+		}
+		const isSoundOn = (flag) => {
+			flag ? this.sound_button.setTexture("sound-on-button") : this.sound_button.setTexture("sound-off-button");
+			localStorage.setItem('isShadowLeapSoundOn', flag);
+			this.oSoundManager.clickSound.setMute(!flag);
+			this.oSoundManager.ballCollisionSound.setMute(!flag);
+			this.oSoundManager.barrierCollisionSound.setMute(!flag);
+		}
+		this.sound_button.setInteractive().on('pointerdown', () => {
+			this.oSoundManager.playSound(this.oSoundManager.clickSound, false);
+			isSoundOn(!JSON.parse(localStorage.getItem("isShadowLeapSoundOn")));
+		});
+		this.music_button.setInteractive().on('pointerdown', () => {
+			this.oSoundManager.playSound(this.oSoundManager.clickSound, false);
+			isMusicOn(!JSON.parse(localStorage.getItem("isShadowLeapMusicOn")));
+		});
+		isMusicOn(JSON.parse(localStorage.getItem("isShadowLeapMusicOn")));
+		isSoundOn(JSON.parse(localStorage.getItem("isShadowLeapSoundOn")));
+	}
 	create() {
 
 		this.editorCreate();
@@ -66,13 +90,13 @@ class Home extends Phaser.Scene {
 		this.oInputManager = new InputManager(this);
 		this.oSoundManager = new SoundManager(this);
 
-		this.oSoundManager.playSound(this.oSoundManager.backgroundMusic, true);
 		this.logo.upper_ball.setY(-90);
 		this.logo.lower_ball.setY(-96);
 		this.logo.upper_shadow_ball.setY(12);
 		this.logo.lower_shadow_ball.setY(14);
 		this.oTweenManager.ballAnimation();
 		this.particalAnimation();
+		this.setAudio();
 		this.oInputManager.buttonClick(this.play_button);
 		this.oInputManager.buttonClick(this.sound_button);
 		this.oInputManager.buttonClick(this.music_button);
